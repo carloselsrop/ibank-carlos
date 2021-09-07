@@ -1,30 +1,37 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div
+    class="w-full h-full lg:h-screen pb-8 backGround flex flex-col items-center"
+  >
+    <Sidebar />
+    <Modal />
+    <div class="w-11/12">
+      <Navbar />
+      <CardTypes class="hidden md:flex" />
+      <Content />
+    </div>
   </div>
-  <router-view/>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Navbar from './components/Navbar.vue';
+import CardTypes from './components/CardTypes.vue';
+import Content from './components/Content.vue';
+import Modal from './components/Modal.vue';
+import Sidebar from './components/Sidebar.vue';
 
-#nav {
-  padding: 30px;
-}
+export default {
+  components: {
+    Navbar,
+    CardTypes,
+    Content,
+    Modal,
+    Sidebar,
+  },
+};
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+<style scoped>
+.backGround {
+  background-color: #40444c;
 }
 </style>
